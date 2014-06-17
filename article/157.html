@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>linux 11 个很有用但鲜有人知的 命令_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='linux 11 个很有用但鲜有人知的 命令' />
+<meta name="keywords" content="" />
+<meta name="description" content="linux 11 个很有用但鲜有人知的 命令" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a   href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a class='current'  href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/157.html">linux 11 个很有用但鲜有人知的 命令</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/seo/" title="查看SEO中的全部文章" rel="category tag">SEO</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=8&id=157&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>Linux命令行吸引了大多数Linux爱好者。一个正常的Linux用户一般掌握大约50-60个命令来处理每日的任务。Linux命令和它们的 转换对于Linux用户、Shell脚本程序员和管理员来说是最有价值的宝藏。有些Linux命令很少人知道，但不管你是新手还是高级用户，它们都非常方 便有用。</p><p><img class="aligncenter" alt="11 个很有用但鲜有人知的 linux 命令" src="/d/file/2014/06/17/1c469bf23c44ac3b75475896321d40c8.jpg" border="0" /></p><p>少有人知道的Linux命令</p><p>这篇文章的目的是介绍一些少有人知的Linux命令，它们一定会高效地帮你管理你的桌面/服务器。</p><p><strong>1. sudo !!命令</strong></p><p>没有特定输入sudo命令而运行，将给出没有权限的错误。那么，你不需要重写整个命令，仅仅输入&#8217;!!&#8217;就可以抓取最后的命令。</p><ol><li>$ apt-get update</li><li>E: Could not open lock file /var/lib/apt/lists/lock - open(13: Permission denied)</li><li>E: Unable to lock directory /var/lib/apt/lists/</li><li>E: Could not open lock file /var/lib/dpkg/lock - open(13: Permission denied)</li><li>E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?</li><li>$ sudo !!</li><li>sudoapt-get update</li><li>[sudo] password forserver:</li><li>&amp;hellip;</li><li>..</li><li>Fetched 474 kB in16s (28.0 kB/s)</li><li>Reading package lists&#8230; Done</li><li>server@localhost:~$</li></ol><p id="content_p_2_11"><strong>2. python命令</strong></p><p>下面的命令生产一个通过HTTP显示文件夹结构树的简单网页，可以通过浏览器在端口8000访问，直到发出中断信号。</p><ol><li># python -m SimpleHTTPServer</li></ol><p><img class="aligncenter" alt="11 个很有用但鲜有人知的 linux 命令" src="/d/file/2014/06/17/3d2ab9021dee684221e35e780ebc90e5.jpg" width="498" border="0" /></p><p id="content_p_3_5"><strong>3. mtr命令</strong></p><p>我们大多数都熟悉ping和traceroute。那对于把两个命令的功能合二为一的mtr命令呢。如果mtr没在你的机子上安装，apt或者yum需要的包。</p><ol><li>$ sudo apt-get install mtr (On Debian based Systems)</li><li># yum install mtr (On Red Hat based Systems)</li></ol><p>现在运行mtr命令，开始查看mtr运行的主机和google.com直接的网络连接。</p><ol><li># mtr google.com</li></ol><p><img class="aligncenter" alt="11 个很有用但鲜有人知的 linux 命令" src="/d/file/2014/06/17/d0f1e35b80faf7efbb9d5c0d81e6766c.jpg" width="498" border="0" /></p><p>mtr命令</p><p id="content_p_4_5"><strong>4. Ctrl+x+e命令</strong></p><p>这个命令对于管理员和开发者非常有用。为了使每天的任务自动化，管理员需要通过输入vi、vim、nano等打开编辑器。</p><p>仅仅从命令行快速的敲击&amp;ldquo;Ctrl-x-e&amp;rdquo;，就可以在编辑器中开始工作了。</p><p id="content_p_4_11"><strong>5. nl命令</strong></p><p>&amp;ldquo;nl命令&amp;rdquo;添加文件的行数。一个叫做&#8217;one.txt&#8217;的文件，其每行的内容是（Fedora、Debian、Arch、Slack和Suse），给每行添加行号。首先使用cat命令显示&amp;ldquo;one.txt&amp;rdquo;的文件内容。</p><ol><li># cat one.txt</li><li>fedora</li><li>debian</li><li>arch</li><li>slack</li><li>suse</li></ol><p>现在运行&amp;ldquo;nl命令&amp;rdquo;，以添加行号的方式来显示。</p><ol><li># nl one.txt</li><li>1 fedora</li><li>2 debian</li><li>3 arch</li><li>4 slack</li><li>5 suse</li></ol><p id="content_p_5_5"><strong>6. shuf命令</strong></p><p>&amp;ldquo;Shut&amp;rdquo;命令随机从一个文件或文件夹中选择行/文件/文件夹。首先使用ls命令来显示文件夹的内容。</p><ol><li># ls</li><li>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos</li><li>#  ls | shuf (shuffle Input)</li><li>Music</li><li>Documents</li><li>Templates</li><li>Pictures</li><li>Public</li><li>Desktop</li><li>Downloads</li><li>Videos</li><li>#  ls | shuf -n1 (pick on random selection)</li><li>Public</li><li># ls | shuf -n1</li><li>Videos</li><li># ls | shuf -n1</li><li>Templates</li><li># ls | shuf -n1</li><li>Downloads</li></ol><p>注意：你可以把&amp;lsquo; n1&amp;rsquo;替换成&amp;lsquo; n2&amp;rsquo;来输出两个随机选择或者使用 n3、 n4等数字输出其他任意的随机选择。</p><p id="content_p_5_22"><strong>7. ss命令</strong></p><p>&amp;ldquo;ss&amp;rdquo;表示socket统计。这个命令调查socket，显示类似netstat命令的信息。它可以比其他工具显示更多的TCP和状态信息。</p><ol><li># ss</li><li>State      Recv-Q Send-Q    Local Address:Port         Peer Address:Port</li><li>ESTAB      0      0      192.168.1.198:41250        *.*.*.*:http</li><li>CLOSE-WAIT 1      0    127.0.0.1:8000             127.0.0.1:41393</li><li>ESTAB      0      0     192.168.1.198:36239        *.*.*.*:http</li><li>ESTAB      310    0     127.0.0.1:8000             127.0.0.1:41384</li><li>ESTAB      0      0     192.168.1.198:41002       *.*.*.*:http</li><li>ESTAB      0      0     127.0.0.1:41384            127.0.0.1:8000</li></ol><p id="content_p_6_5"><strong>8. last命令</strong></p><p>&amp;ldquo;last&amp;rdquo;命令显示的是上次登录用户的历史信息。这个命令通过搜索文件&amp;ldquo;/var/log/wtmp&amp;rdquo;，显示logged-in和logged-out及其tty&amp;lsquo;s的用户列表。</p><ol><li>#  last</li><li>server   pts/0        :0               Tue Oct 22 12:03   still logged in</li><li>server   tty8         :0               Tue Oct 22 12:02   still logged in</li><li>&amp;hellip;</li><li>&#8230;</li><li>(unknown tty8         :0               Tue Oct 22 12:02 - 12:02  (00:00)</li><li>server   pts/0        :0               Tue Oct 22 10:33 - 12:02  (01:29)</li><li>server   tty7         :0               Tue Oct 22 10:05 - 12:02  (01:56)</li><li>(unknown tty7         :0               Tue Oct 22 10:04 - 10:05  (00:00)</li><li>reboot   system boot  3.2.0-4-686-pae  Tue Oct 22 10:04 - 12:44  (02:39)</li><li>wtmp begins Fri Oct  4 14:43:17 2007</li></ol><p id="content_p_6_14"><strong>9. curl ifconfig.me</strong></p><p>那么如何得到你的外部IP地址呢？使用google？那么这个命令就在你的终端输出你的外部IP地址。</p><ol><li># curl ifconfig.me</li></ol><p>注意：你可能没有按照curl包，你需要 apt/yum来按照包。</p><p><strong>10. tree命令</strong></p><p>以树式的格式得到当前文件夹的结构。</p><p><img class="aligncenter" alt="11 个很有用但鲜有人知的 linux 命令" src="/d/file/2014/06/17/25163282e729e0e45127724ae8df684c.jpg" width="498" border="0" /></p><p id="content_p_7_5"><strong>11. pstree</strong></p><p>这个命令显示当前运行的所有进程及其相关的子进程，输出的是类似&amp;lsquo;tree&amp;rsquo;命令的树状格式</p><p><img class="aligncenter" alt="11 个很有用但鲜有人知的 linux 命令" src="/d/file/2014/06/17/813c3ed2cb7d84e9db5f3a7ae25ff7a0.jpg" width="498" border="0" /></p><p>目前为止就这么多。</p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="8" data-thread-key="157" 
+	data-title="linux 11 个很有用但鲜有人知的 命令" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=8&amp;id=157">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=8&id=157&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="157" />
+<input name="classid" type="hidden" id="classid" value="8" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/157.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

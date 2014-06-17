@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令）_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令）' />
+<meta name="keywords" content="" />
+<meta name="description" content="centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令）" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a   href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a class='current'  href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/38.html">centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令）</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/lnmpa/" title="查看LNMPA中的全部文章" rel="category tag">LNMPA</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=7&id=38&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令：</p><p><strong>1.新建文件夹</strong></p><p>mkdir 文件名</p><p>新建一个名为test的文件夹在home下</p><p>view source1 mkdir /home/test</p><p><strong>2.新建文本</strong></p><p>在home下新建一个test.sh脚本</p><p>vi /home/test.sh</p><p><strong>3.删除文件或文件夹</strong></p><p>1、删除home目录下的test目录</p><p>rm /home/test</p><p>2、这种不带参数的删除方法经常会提示无法删除，因为权限不够。</p><p>rm -r /home/test</p><p>3、-r是递归的删除参数表中的目录及其子目录。 目录将被清空并且删除。 当删除目录包含的具有写保护的文件时用户通常是被提示的。</p><p>rm -rf /home/test</p><p>-4、f是不提示用户，删除目录下的所有文件。请注意检查路径，输成别的目录就悲剧了。</p><p>rm -ir /home/test</p><p>5、-i是交互模式。使用这个选项，rm命令在删除任何文件前提示用户确认。</p><p><strong>4.移动文件或文件夹</strong></p><p>mv [options] 源文件或目录 目标文件或目录</p><p>示例：</p><p><strong>1、移动hscripts文件夹/目录下的所有文件，目录和子目录到tmp目录mv hscripts tmp<br /></strong>分析：在上述命令中，如果tmp目录已经存在，mv命令将移动hscripts文件夹/目录下的所有文件，目录和子目录到tmp目录。 如果没有tmp目录，它将重命名 hscripts目录为tmp目录。</p><p>2、<strong>移动多个文件/更多问价到另一目录<br />mv file1.txt tmp/file2.txt newdir<br /></strong>这个命令移动当前目录的file1.txt文件和tmp文件夹/目录的file2.txt文件到newdir目录。</p><p>参数：</p><p>-i：交互方式操作。如果mv操作将导致对已存在的目标文件的覆盖，此时系统询问是否重写，要求用户回答”y”或”n”，这样可以避免误覆盖文件。</p><p>-f：禁止交互操作。mv操作要覆盖某个已有的目标文件时不给任何指示，指定此参数后i参数将不再起作用。</p><p><strong>5.复制文件或文件夹</strong></p><p>cp [options] 来源档(source) 目的檔(destination)</p><p>参数：<br />-a ：相当于 -pdr 的意思；<br />-d ：若来源文件为连结文件的属性(link file)，则复制连结文件属性而非档案本身；<br />-f ：为强制 (force) 的意思，若有重复或其它疑问时，不会询问使用者，而强制复制；<br />-i ：若目的檔(destination)已经存在时，在覆盖时会先询问是否真的动作！<br />-l ：进行硬式连结 (hard link) 的连结档建立，而非复制档案本身；<br />-p ：连同档案的属性一起复制过去，而非使用预设属性；<br />-r ：递归持续复制，用于目录的复制行为；<br />-s ：复制成为符号连结文件 (symbolic link)，亦即『快捷方式』档案；<br />-u ：若 destination 比 source 旧才更新 destination ！<br />最后需要注意的，如果来源档有两个以上，则最后一个目的文件一定要是『目录』才行！</p><p>示例:<br /><strong>1、复制两个文件</strong>:<br /><strong>cp file1 file2<br /></strong>上述cp命令复制文件file1.php 的内容到文件file2.php中。</p><p><strong>2、备份拷贝的文件</strong>:<br /><strong>cp -b file1.php file2.php</strong><br />创建文件file1.php的带着符号 ‘~’的备份文件file2.php~。<br /><strong>3、复制文件夹和子文件夹</strong>:<br /><strong>cp -R scripts scripts1</strong><br />上面的 cp 命令从 scripts 复制文件夹和子文件夹到 scripts1。</p><p><strong>6、创建目录</strong><br />mkdir 文件名<br />mkdir /var/www/test</p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="7" data-thread-key="38" 
+	data-title="centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令）" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=7&amp;id=38">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=7&id=38&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="38" />
+<input name="classid" type="hidden" id="classid" value="7" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/38.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

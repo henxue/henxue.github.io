@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>帝国CMS给编辑器添加SyntaxHighlighter插入代码插件_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='帝国CMS给编辑器添加SyntaxHighlighter插入代码插件' />
+<meta name="keywords" content="" />
+<meta name="description" content="帝国CMS给编辑器添加SyntaxHighlighter插入代码插件" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a class='current'  href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/97.html">帝国CMS给编辑器添加SyntaxHighlighter插入代码插件</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/tutorials/" title="查看帝国教程中的全部文章" rel="category tag">帝国教程</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=1&id=97&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>帝国编辑器（FCK）默认是没有<span style="color: #ff0000;">插入代码</span>这一功能的，所以一般在添加代码的时候习惯用<span style="color: #ff0000;">引用</span>这个功能，可是，这也太不专业了吧？那咋整？就给FCK加一个插件呗。下面就是很有名的SyntaxHighlighter了。</p><p>首先大家可以去官网<a href="http://alexgorbatchev.com/SyntaxHighlighter/download/">下载</a>最新版，但是下载下来并不是就能用，还要进行一些配置，对新手来说是比较有难度的。这里可以直接使用恨雪提供的已经配置好的版本（2.1.382版本），本教程也是依据该版本而进行。</p><p>下载地址：<a href="http://pan.baidu.com/s/1gdooruj">百度网盘</a></p><p>下载解压后是两个文件夹：</p><p><a href="http://www.henxue.net/wp-content/uploads/2014/03/622c8b874993153d20147646fc469a56.png"><img class="alignnone size-full wp-image-124" alt="622c8b874993153d20147646fc469a56" src="/d/file/2014/06/17/ed97921794b639719feff15f7e6256a8.png" width="326" height="173" /></a></p><p>&nbsp;</p><p>第一，上传<span style="color: #ff0000;">SyntaxHighlighter2.1.382</span>这个文件夹到网站根目录，或者其他你喜欢的地方，也可以重命名该文件夹，但是在后面模板文件中调用CSS和js的时候路径要对，这里我就传到根目录吧。</p><p>第二，把以下代码加到内容模板，这里就要注意第一步了。</p><blockquote><p>&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shCore.js&#8221;&gt;&lt;/script&gt;<br />&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shBrushCss.js&#8221;&gt;&lt;/script&gt;<br />&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shBrushJScript.js&#8221;&gt;&lt;/script&gt;<br />&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shBrushXml.js&#8221;&gt;&lt;/script&gt;<br />&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shBrushPhp.js&#8221;&gt;&lt;/script&gt;<br />&lt;script type=&#8221;text/javascript&#8221; src=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/scripts/shBrushSql.js&#8221;&gt;&lt;/script&gt;<br />&lt;link type=&#8221;text/css&#8221; rel=&#8221;stylesheet&#8221; href=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/styles/shCore.css&#8221;/&gt;<br />&lt;link type=&#8221;text/css&#8221; rel=&#8221;stylesheet&#8221; href=&#8221;[!--news.url--]SyntaxHighlighter2.1.382/styles/shThemeDefault.css&#8221;/&gt;<br />&lt;script type=&#8221;text/javascript&#8221;&gt;<br />SyntaxHighlighter.config.clipboardSwf = &#8216;[!--news.url--]SyntaxHighlighter2.1.382/scripts/clipboard.swf&#8217;;<br />SyntaxHighlighter.all();<br />&lt;/script&gt;</p></blockquote><p>值得一提的是，上面的这些shBrushSql.js之类的JS，并不是固定要调用这些的。这些JS都有其含义（brushes），可以看<a href="http://alexgorbatchev.com/SyntaxHighlighter/manual/brushes/">官方的文档</a>。因为我比较经常用到css、html、php、sql，所以我就只写上面所示的js即可。当然，如果你愿意，你可以把全部的都调用上去。但是那样会很慢哦。但是，假设你没有调用php的，当你在插入代码的时候，语言选择php，那么在前台，会提示错误。（shCore.js一定要有，不然前台会没有效果）</p><p>第三，把&amp;ldquo;syntaxhighlight2&amp;rdquo;这个文件夹传到&amp;ldquo;e/admin/ecmseditor/infoeditor/editor/plugins&amp;rdquo;目录下，也就是说，这是FCK编辑器的一个插件。</p><p>第四，修改一下FCK编辑器的配置文件，需要编辑器添加一下插件和按钮。</p><p>1，后台配置文件路径：/e/admin/ecmseditor/infoeditor/fckconfig.js</p><p>2，前台配置文件路径：/e/data/ecmseditor/infoeditor/fckconfig.js</p><p>找到FCKConfig.PluginsPath = FCKConfig.BasePath + &#8216;plugins/&#8217; ;      大概在51行</p><p>在下面插入</p><blockquote><p>FCKConfig.Plugins.Add(&#8216;syntaxhighlight2&#8242;,&#8217;zh-cn&#8217;);<br />// default language options: c++,csharp,css,delphi,java,jscript,php,python,ruby,sql,vb,xhtml<br />FCKConfig.SyntaxHighlight2LangDefault =&#8217;c++&#8217;;</p></blockquote><p>然后找到&#8217;InsertTBr&#8217;]，在  &#8217;InsertTBr&#8217;  后面输入   ,&#8217;SyntaxHighLight2&#8242;。</p><p>这样就算是完成了，编辑器的界面大致如下：</p><p><img alt="帝国CMS给编辑器添加SyntaxHighlighter插入代码插件" src="/d/file/2014/06/17/7a0d8b79ce67d3ba8e7eed586e0175df.jpg" /></p><p>前台效果大致如下：</p><p><img alt="帝国CMS给编辑器添加SyntaxHighlighter插入代码插件" src="/d/file/2014/06/17/8806a235161d524d03500c57a8843411.png" width="626" height="111" /></p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="1" data-thread-key="97" 
+	data-title="帝国CMS给编辑器添加SyntaxHighlighter插入代码插件" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=1&amp;id=97">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=1&id=97&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="97" />
+<input name="classid" type="hidden" id="classid" value="1" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/97.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

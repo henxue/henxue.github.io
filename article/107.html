@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>打通多个帝国CMS系统的会员整合与同步教程（官方版）_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='打通多个帝国CMS系统的会员整合与同步教程（官方版）' />
+<meta name="keywords" content="" />
+<meta name="description" content="打通多个帝国CMS系统的会员整合与同步教程（官方版）" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a class='current'  href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/107.html">打通多个帝国CMS系统的会员整合与同步教程（官方版）</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/tutorials/" title="查看帝国教程中的全部文章" rel="category tag">帝国教程</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=1&id=107&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>本教程讲的是如何把多个帝国CMS系统的会员整合与同步，适用于“做大”的童鞋，转自帝国论坛WC的<a href="http://bbs.phome.net/showthread-13-157860-0.html" target="_blank">帖子</a>，恨雪没试过，不过WC的帖子应该是靠谱的。原文如下：</p><p>帝国CMS系统本身已经内置良好的会员整合框架，所以多个帝国CMS会员整合是相当容易的。下面我们举例讲解一下如何操作：</p><p><span style="color: blue;"><b>例子：我们要整合下面三个帝国CMS系统</b></span><br />网站名称分别为“A网站”、“B网站”、“C网站”；<br />安装系统的数据库名分别为“adb”、“bdb”、“cdb”；<br />使用的域名分别为“a.phome.net”、“b.phome.net”、“c.phome.net”。</p><p><span style="color: blue;"><b>整合步骤：</b></span><br /><b>一、把其中一个帝国CMS系统中的会员表作为所有网站的公共会员表。</b><br />比如我们把“A网站”作为全站会员表，墨共会员表名就是：adb.phome_enewsmember</p><p><b>二、修改所有网站会员配置文件(/e/class/user.php)，把会员表名统一改为公共会员表名“adb.phome_enewsmember”。</b><br />用Dreamweaver打开各个帝国CMS系统的/e/class/user.php文件，将：</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$user_tablename=<span style="color: red;">&#8220;{$user_tbpre}enewsmember&#8221;</span>;               //用户表</td></tr></tbody></table><p>改为</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$user_tablename=<span style="color: red;">&#8220;adb.phome_enewsmember&#8221;</span>;               //用户表</td></tr></tbody></table><p>修改后保存文件。</p><p><b>三、同一个域名下，设置统一的COOKIE信息可以实现同步登录与退出，修改如下：</b><br />用Dreamweaver打开各个帝国CMS系统的/e/class/config.php文件，<br />1、将：</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$phome_cookiedomain=<span style="color: red;">&#8221;</span>;                //cookie作用域</td></tr></tbody></table><p>改为</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$phome_cookiedomain=<span style="color: red;">&#8216;.phome.net&#8217;</span>;                //cookie作用域</td></tr></tbody></table><p>2、将：</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$phome_cookievarpre=<span style="color: red;">&#8216;ecms&#8217;</span>;                //前台cookie变量前缀</td></tr></tbody></table><p><span style="color: red;">改为“A网站”帝国系统的“前台cookie变量前缀”</span>。（即把所有网站COOKIE设置一样）</p><p>修改后保存文件。</p><p><b>四、完成上面步骤后，所有网站会员整合完成，在所有网站注册、登录、退出都可以同步。赶快试试登录吧！</b></p><p><b>其他说明：</b><br />1、整合后所有会员帐号密码都存放在公共会员表里。<br />2、使用同一个域名才能实现所有网站同步登录与退出，不同域名只能实现会员帐号同步，会员需要分别登录网站。</p><p><b>帝国CMS 7.0以上版本附加说明：</b><br />7.0以上版本会员配置文件和COOKIE配置文件均为同一个：/e/config/config.php<br />会员表设置参数为：</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$ecms_config['member']['tablename']=&#8221;{$dbtbpre}enewsmember&#8221;;        //会员表</td></tr></tbody></table><p>COOKIE相关设置参数为：</p><table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="#cccccc"><tbody><tr><td bgcolor="#FFFFFF" width="100%">$ecms_config['cks']['ckdomain']=&#8221;;                //cookie作用域<br />$ecms_config['cks']['ckpath']=&#8217;/';                //cookie作用路径<br />$ecms_config['cks']['ckvarpre']=&#8217;ecms&#8217;;                //前台cookie变量前缀</td></tr></tbody></table>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="1" data-thread-key="107" 
+	data-title="打通多个帝国CMS系统的会员整合与同步教程（官方版）" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=1&amp;id=107">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=1&id=107&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="107" />
+<input name="classid" type="hidden" id="classid" value="1" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/107.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>帝国CMS中$navinfor和$GLOBALS的一些使用小技巧_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='帝国CMS中$navinfor和$GLOBALS的一些使用小技巧' />
+<meta name="keywords" content="" />
+<meta name="description" content="帝国CMS中$navinfor和$GLOBALS的一些使用小技巧" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a class='current'  href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/73.html">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/tutorials/" title="查看帝国教程中的全部文章" rel="category tag">帝国教程</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=1&id=73&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>$navinfor和$GLOBALS是两个在模板制作当中比较常用的函数，这两个函数有啥作用呢？功能到底有多强大？这个就要看模板制作的需求和配合其他功能的使用了。这里列举几个比较常用的方法。点击这里<a href="http://www.phome.net/doc/ecmsedu/base/mbzz/html/other.html#q9" target="_blank">[1]</a>、<a href="http://www.phome.net/doc/manual/mod/html/extendvar.html" target="_blank">[2]</a>可以查看官方对这两个函数的简单解释。</p><p>下面是我根据帝国官方提供的教程而实现的几种效果：</p><h2>在内容模板中调用出filename字段</h2><p>前提：由于我在下载系统模型下的文章都是自己定义文件名的，也就是filename，然后在自定义列表中有用到该filename，且必须在下载系统模型的内容也中调出filename字段。可以使用&lt;?=$navinfor[filename]?&gt;即可。当然，你也可以调其他字段，比如&lt;?=$navinfor[keyboard]?&gt;。</p><h2>在列表中利用$GLOBALS给当前专题的导航添样式</h2><p><a href="http://www.henxue.net/wp-content/uploads/2014/03/01.png"><img class="size-full wp-image-38 aligncenter" alt="01" src="/d/file/2014/06/17/7daa848b1674c75b936c9d9cb17be7aa.png" width="202" height="119" /></a> <a href="http://www.henxue.net/wp-content/uploads/2014/03/874cbf365b3f8cfa57cb4362ccd22db9.png"><img class="size-medium wp-image-39 aligncenter" alt="874cbf365b3f8cfa57cb4362ccd22db9" src="/d/file/2014/06/17/8ca02b8044cabb22779309ab9d19dfcd.png" width="183" height="93" /></a></p><p>代码如下：</p><blockquote><p>&lt;a href=&#8221;[!--news.url--]android&#8221; title=&#8221;安卓游戏&#8221; &lt;? if ($GLOBALS[navclassid]==1)<br />{<br />echo &#8220;class=&#8217;on&#8217;&#8221;;<br />}?&gt;&gt;安卓游戏&lt;/a&gt; &lt;a href=&#8221;[!--news.url--]ios&#8221; title=&#8221;iOS游戏&#8221; &lt;? if ($GLOBALS[navclassid]==2)<br />{<br />echo &#8220;class=&#8217;on&#8217;&#8221;;<br />}?&gt;&gt;iOS游戏&lt;/a&gt;</p></blockquote><p>这是我某个网站中的两个专题，使用的是同一个列表模板。如果按照传统的做法，就得做两个列表模板，在安卓游戏的列表模板中给安卓游戏加上on，然后在iOS列表模板中给iOS加上on，这样是很浪费的。那么我们可以利用专题的ID和$GLOBALS来实现图片的效果。思路是这样的：安卓游戏的专题ID是1，iOS的专题ID是2.那么在安卓游戏这边判断当前专题ID是否等于1，如果等于1就加class=&amp;quot;on&amp;quot;样式。iOS地方也是同样的道理。这样就很简单的实现了。更多的功能，还需要自己的挖掘。</p><h2>在列表页、内容页中判断在某栏目下、某标签的样式为none</h2><p>用法就是，某个标签（以&lt;li&gt;为例）的样式，在栏目ID为1下显示，其他栏目下不显示。</p><p>在&lt;/head&gt;前面加一个判断（列表页为例）：</p><blockquote><p>&lt;?php<br />if($GLOBALS[navclassid]==1)<br />{<br />?&gt;<br />&lt;style&gt;.ceshi{}&lt;/style&gt;<br />&lt;?php<br />}<br />else<br />{<br />?&gt;<br />&lt;style&gt;.ceshi{display:none}&lt;/style&gt;<br />&lt;?php<br />}<br />?&gt;</p></blockquote><p>这样一来就达到了以上想要的效果</p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="1" data-thread-key="73" 
+	data-title="帝国CMS中$navinfor和$GLOBALS的一些使用小技巧" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=1&amp;id=73">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=1&id=73&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="73" />
+<input name="classid" type="hidden" id="classid" value="1" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/73.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

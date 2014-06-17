@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>在WordPress用户资料添加QQ、新浪微博等选项信息_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='在WordPress用户资料添加QQ、新浪微博等选项信息' />
+<meta name="keywords" content="" />
+<meta name="description" content="在WordPress用户资料添加QQ、新浪微博等选项信息" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a   href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a class='current'  href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/133.html">在WordPress用户资料添加QQ、新浪微博等选项信息</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/website/" title="查看建站相关中的全部文章" rel="category tag">建站相关</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=5&id=133&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p style="text-align: left;">话说WordPress是外国人开发的，后台的用户资料选项都是根据外国人家自己的习惯设置的，默认都有雅虎通、Jabber 或 Google Talk，然而针对国人的话，这些服务我们基本都是不去使用的，这样对我们来说就是废柴一堆。难道我们就不能往里面添加QQ、新浪微博、腾讯微博、阿里旺旺等等国人常用的呢，答案当然是可以的喽~<br /><img class="aligncenter" title="WordPress后台资料" alt="" src="/d/file/2014/06/17/ad59a74443e28af05148a4570fba0184.png" width="500" height="180" />WordPress后台资料- QQ、新浪微博</p><p>方法很简单拉，在主题文件 function.php 中的添加下面的代码（以QQ、新浪微博为列子）：</p><p>&nbsp;</p><blockquote><p>add_filter(&#8216;user_contactmethods&#8217;, &#8216;my_user_contactmethods&#8217;);<br />function my_user_contactmethods($user_contactmethods){<br />$user_contactmethods['qq'] = &#8216;QQ帐号&#8217;;<br />$user_contactmethods['sinat'] = &#8216;新浪微博&#8217;;<br />return $user_contactmethods;<br />}</p></blockquote><p>这样添加后在后台的用户资料里面就可以看到可以填写信息框。</p><p>如果要添加多个呢，格式如下 $user_contactmethods['信息1'] = ‘信息2′。信息1为可用拼音或者英文，信息2为您要添加资料的名称。</p><p>&nbsp;</p><p>完美解决方法：</p><p>&nbsp;</p><p>完美实现<strong>WordPress用户增加自定义个人资料（显示自定义内容</strong>）。用wordpress搭建博客的朋友应该都知道，wordpress后台虽然有“我的资料”一栏，并且也可以填写一些个人资料，但是由于wordpress默认的都是一些国内用户不常用的玩意，如AIM、Yahoo IM、Jabber 这些对于国内用户而言基本就是多余。所以我们希望把不常用的删掉，改成常用的新浪微博、腾讯微博等。下面是实现方法。</p><p>下面是核心代码，加到主题文件夹functions.php里：</p><pre>//设置个人资料相关选项function my_profile( $contactmethods ) {	$contactmethods['weibo_sina'] = '新浪微博';   //增加	$contactmethods['weibo_tx'] = '腾讯微博';	unset($contactmethods['aim']);   //删除	unset($contactmethods['yim']);	unset($contactmethods['jabber']);	return $contactmethods;}add_filter('user_contactmethods','my_profile');</pre><p>这个时候仅仅只是在后台有填写的文本框，实际上一点用都没！我们要的效果是在每篇文章里展示出来，所以要把数据都输出到页面上。</p><p>在single.php你觉得合适的位置加代码：</p><pre>&lt;a href="&lt;?php the_author_meta('weibo_sina'); ?&gt;" target="_blank"&gt;新浪微博&lt;/a&gt;</pre><p>但实际使用中，不可能每个作者都有新浪微博，所以有的人这里没有填写是空的。而到了页面上，“新浪微博”四个字还在，但是href里是空的，这就非常不友好了。所以要做个判断。</p><pre>&lt;?php if (get_the_author_meta('weibo_sina')!=""){ ?&gt;&lt;?php echo "&lt;a href='" . get_the_author_meta('weibo_sina') . "' target='_blank'&gt;新浪微博&lt;/a&gt;"; ?&gt;&lt;?php } ?&gt;</pre><p>这里把之前的the_author_meta()换成了get_the_author_meta()来做判断非空，因为the_author_meta()是直接输出，而get_the_author_meta()是有返回值，所以可以作为判断的条件。这样就完美实现WordPress用户增加并显示自定义个人资料了。</p><p><img title="个人资料" alt="个人资料" src="/d/file/2014/06/17/add8e0ba1752d1ea06339ac4ed6bd603.jpg" width="479" height="310" /></p><p>原作者显示效果</p><p>用到的文章：</p><p><a href="http://wange.im/diy-profile-in-wordpress.html">http://wange.im/diy-profile-in-wordpress.html</a></p><p><a href="http://codex.wordpress.org/Function_Reference/the_author_meta">http://codex.wordpress.org/Function_Reference/the_author_meta</a></p><p><a href="http://codex.wordpress.org/Function_Reference/get_the_author_meta">http://codex.wordpress.org/Function_Reference/get_the_author_meta</a></p><p>资料来源：<a title="http://ons.me/378.html" href="http://ons.me/378.html">http://ons.me/378.html</a> 主要为自己搜集备忘。</p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="5" data-thread-key="133" 
+	data-title="在WordPress用户资料添加QQ、新浪微博等选项信息" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=5&amp;id=133">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=5&id=133&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="133" />
+<input name="classid" type="hidden" id="classid" value="5" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/133.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>

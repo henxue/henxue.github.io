@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="恨雪博客">
+<title>帝国CMS修改 morepic 前端显示样式_恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net</title>
+<link rel='stylesheet' id='main-css'  href='/skin/xiu/css/style.css' type='text/css' media='all' />
+<link rel='canonical' href='帝国CMS修改 morepic 前端显示样式' />
+<meta name="keywords" content="" />
+<meta name="description" content="帝国CMS修改 morepic 前端显示样式" />
+<!--[if lt IE 9]><script src="/skin/xiu/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<section class="container">
+  <header class="header">
+    <div class="logo"><a href="/" title="恨雪博客 - 专注帝国CMS网站建设及模版制作 | www.henxue.net">恨雪博客</a></div>
+    <ul class="nav">
+<li><a href="/" target="_self">首页</a></li>
+<li><a class='current'  href="/tutorials/" target="_blank">帝国教程</a></li>
+<li><a   href="/template/" target="_blank">帝国模版</a></li>
+<li><a   href="/plug/" target="_blank">插件模块</a></li>
+<li><a   href="/news/" target="_blank">业界新闻</a></li>
+<li><a   href="/website/" target="_blank">建站相关</a></li>
+<li><a   href="/design/" target="_blank">前端设计</a></li>
+<li><a   href="/lnmpa/" target="_blank">LNMPA</a></li>
+<li><a   href="/seo/" target="_blank">SEO</a></li>
+<li><a   href="/blog/" target="_blank">网络日志</a></li>
+    
+    </ul>
+    <div class="feeds"> <a class="feed feed-rss" rel="external nofollow" href="http://feed.feedsky.com/hengxue" title="Feed订阅恨雪博客" target="_blank">订阅</a> <a class="feed feed-weibo" rel="external nofollow" href="http://weibo.com/hongrongshun" title="关注博主新浪微博" target="_blank">新浪微博</a> <a class="feed feed-tqq" rel="external nofollow" href="http://t.qq.com/rosonho" title="关注博主腾讯微博" target="_blank">腾讯微博</a> <a class="feed feed-weixin" rel="external nofollow" href="javascript:;">关注微信</a> </div>
+    <div class="slinks">QQ:415245871</div>
+  </header>
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><a href="/article/88.html">帝国CMS修改 morepic 前端显示样式</a></h1>
+        <ul class="article-meta">
+          <li>henxue 发布于 4小时前</li>
+          <li>分类：<a href="/tutorials/" title="查看帝国教程中的全部文章" rel="category tag">帝国教程</a></li>
+          <li class="post-views">阅读(<script src=/e/public/ViewClick/?classid=1&id=88&addclick=1></script>)</li>
+          <li><a href="#pinglun" title="去发表你的看法">评论</a></li>
+          <li></li>
+        </ul>
+      </header>
+      <article class="article-content">			<p>[!--morepic--]是图片集字段，有人说这是图片系统固有的字段，其实这是错的，帝国所有的系统模型都是可以变化的，并不是官方默认给你几个、给你什么模型就是什么模型，这也就是帝国CMS的灵活性所在。[!--morepic--]可以用在任何你想要它出现的任何系统模型里，那么怎样修改[!--morepic--]的外观呢？这也是帝国模板比较难也是比较变态的一个地方，没有把模板和程序分开，所以我们是要修改程序的。</p><p>打开<span style="color: #ff0000;">e/class/functions.php</span>这个文件。搜索<span style="color: #ff0000;">//返回图片集html代</span>，默认的大概是在2763行，如果你都没有修改过这个文件的话。<br />我们先来看一下这段代码，代码很多，要有耐心去看！</p><blockquote><p>//返回图片集html代码<br />function ReturnMorepicpathHtml($add){<br />global $public_r,$fun_r;<br />if(empty($add[morepic]))<br />{<br />return &#8221;;<br />}<br />$line=$add[num]?$add[num]:1;//每行显示<br />$picpath=&#8221;;<br />$path_r=explode(&#8220;rn&#8221;,$add[morepic]);<br />for($pj=0;$pj&lt;count($path_r);$pj++)<br />{<br />$p=$pj+1;<br />if(($p-1)%$line==0||$p==1)<br />{<br />$picpath.=&#8217;<span style="color: #ff0000;">&lt;tr&gt;</span>&#8216;;<br />}<br />$showdown_r=explode(&#8216;::::::&#8217;,$path_r[$pj]);<br />//显示图片名称<br />$name=&#8221;;<br />if(!empty($showdown_r[2]))<br />{<br />$name=&#8221;<span style="color: #ff0000;">&lt;br&gt;&lt;span style=&#8217;line-height=18pt&#8217;&gt;&#8221;.$showdown_r[2].&#8221;&lt;/span&gt;</span>&#8220;;<br />}<br />$width=$add[width]?&#8221; width=&#8217;&#8221;.$add[width].&#8221;&#8216;&#8221;:&#8221;;//宽度<br />$height=$add[height]?&#8221; height=&#8217;&#8221;.$add[height].&#8221;&#8216;&#8221;:&#8221;;//高度<br /><span style="color: #ff0000;">$picpath.=&#8221;&lt;td align=center&gt;&lt;a href=&#8217;&#8221;.$public_r[newsurl].&#8221;e/ViewImg/index.html?url=&#8221;.$showdown_r[1].&#8221;&#8216; target=_blank&gt;&lt;img src=&#8217;&#8221;.$showdown_r[0].&#8221;&#8216;&#8221;.$width.$height.&#8221; border=0&gt;&#8221;.$name.&#8221;&lt;/a&gt;&lt;/td&gt;&#8221;;</span><br /><span style="color: #ff0000;">//分割，其实这一段是主要的显示区域，也就是说，我们要改变前端显示的话，一般就是改变这一段</span><br /><span style="color: #ff0000;">//&#8221;.$public_r[newsurl].&#8221;e/ViewImg/index.html?url=&#8221;.$showdown_r[1].&#8221; 这一段是帝国默认的功能，在新的页面中打开这张图片，还可以缩放来着</span><br /><span style="color: #ff0000;">//&#8221;.$showdown_r[0].&#8221; 懂html的都懂，这是图片url</span><br />if($p%$line==0)<br />{<br />$picpath.=&#8217;<span style="color: #ff0000;">&lt;/tr&gt;</span>&#8216;;<br />}<br />}<br />if($p&lt;&gt;0)<br />{<br />$table=&#8221;<span style="color: #ff0000;">&lt;table width=&#8217;100%&#8217; border=0 cellpadding=4 cellspacing=4&gt;</span>&#8220;;<br />$table1=&#8221;<span style="color: #ff0000;">&lt;/table&gt;</span>&#8220;;<br />$ys=$line-$p%$line;<br />$dotr=0;<br />for($j=0;$j&lt;$ys&amp;&amp;$ys!=$line;$j++)<br />{<br />$dotr=1;<br />$picpath.=&#8217;<span style="color: #ff0000;">&lt;td&gt;&lt;/td&gt;</span>&#8216;;<br />}<br />if($dotr==1)<br />{<br />$picpath.=&#8217;<span style="color: #ff0000;">&lt;/tr&gt;</span>&#8216;;<br />}<br />}<br />$value=$table.$picpath.$table1;<br />return $value;<br />}</p></blockquote><p>其实说修改前端显示外观，就是把帝国惯用的table改成我们自己想要的就可以啦，请注意上面代码中红色的代码，下面是我自己实现的一个样式：</p><blockquote><p>//返回图片集html代码<br />function ReturnMorepicpathHtml($add){<br />global $public_r,$fun_r;<br />if(empty($add[morepic]))<br />{<br />return &#8221;;<br />}<br />$line=$add[num]?$add[num]:1;//每行显示<br />$picpath=&#8221;;<br />$path_r=explode(&#8220;rn&#8221;,$add[morepic]);<br />for($pj=0;$pj&lt;count($path_r);$pj++)<br />{<br />$p=$pj+1;<br />if(($p-1)%$line==0||$p==1)<br />{<br /><span style="color: #ff0000;">$picpath.=&#8217; &#8216;;</span><br />}<br />$showdown_r=explode(&#8216;::::::&#8217;,$path_r[$pj]);<br />//显示图片名称<br />$name=&#8221;;<br />if(!empty($showdown_r[2]))<br />{<br />$name=&#8221; &#8220;;<br />}<br />$width=$add[width]?&#8221; width=&#8217;&#8221;.$add[width].&#8221;&#8216;&#8221;:&#8221;;//宽度<br />$height=$add[height]?&#8221; height=&#8217;&#8221;.$add[height].&#8221;&#8216;&#8221;:&#8221;;//高度<br /><span style="color: #ff0000;">$picpath.=&#8221;&lt;li&gt;&lt;a href=&#8217;&#8221;.$public_r[newsurl].&#8221;e/ViewImg/index.html?url=&#8221;.$showdown_r[1].&#8221;&#8216; target=_blank&gt;&lt;img class=&#8217;hPic&#8217; alt=&#8217;&#8221;.$name.&#8221;&#8216; title=&#8217;&#8221;.$name.&#8221;&#8216; src=&#8217;&#8221;.$showdown_r[0].&#8221;&#8216;&#8221;.$width.$height.&#8221; border=0/&gt;&lt;/a&gt;&lt;/li&gt;&#8221;;</span><br />//分割<br />if($p%$line==0)<br />{<br />$picpath.=&#8217; &#8216;;<br />}<br />}<br />if($p&lt;&gt;0)<br />{<br />$table=&#8221; &#8220;;<br />$table1=&#8221; &#8220;;<br />$ys=$line-$p%$line;<br />$dotr=0;<br />for($j=0;$j&lt;$ys&amp;&amp;$ys!=$line;$j++)<br />{<br />$dotr=1;<br />$picpath.=&#8217; &#8216;;<br />}<br />if($dotr==1)<br />{<br />$picpath.=&#8217; &#8216;;<br />}<br />}<br />$value=$table.$picpath.$table1;<br />return $value;<br />}</p></blockquote><p>大家可以比较一下我这代码和帝国默认的有哪些不同。<br />下面是演示图，带滚动效果来着，其实修改成什么样的，要实现什么样的效果，主要还得看你的css和js。</p><p><img class="size-full wp-image-100 aligncenter" alt="帝国CMS修改 morepic 前端显示样式" src="/d/file/2014/06/17/290b1e83a082e3bbc640503ea9591d3a.jpg" /></p>		</article>
+      <div class="article-social"> <a href="javascript:;" class="action" data-pid="5429" data-event="like"><i class="glyphicon glyphicon-thumbs-up"></i>赞 (<span>0</span>)</a> <a href="#pinglun" class="action" data-event="login"><i class="glyphicon glyphicon-comment"></i>评论</a> <span class="action action-share bdsharebuttonbox"> <i class="glyphicon glyphicon-share"></i>分享 (<span class="bds_count" data-cmd="count"></span>)
+        <div class="action-popover">
+          <div class="popover top in">
+            <div class="arrow"></div>
+            <div class="popover-content"><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_renren" data-cmd="renren"></a></div>
+          </div>
+        </div>
+        </span> </div>
+      <div class="article-tags"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+      <div class="relates">
+        <h3 class="title"><strong>相关阅读</strong></h3>
+        <ul>
+         
+        </ul>
+      </div>
+      <h3 class="title" id="pinglun"></h3>
+      <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="1" data-thread-key="88" 
+	data-title="帝国CMS修改 morepic 前端显示样式" data-author-key="" data-url=""></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"henxue"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+<!--<script>
+		  function CheckPl(obj)
+		  {
+		  if(obj.saytext.value=="")
+		  {
+		  alert("您没什么话要说吗？");
+		  obj.saytext.focus();
+		  return false;
+		  }
+		  return true;
+		  }
+		  </script><form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="plpost">
+
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title">
+<tr>
+<td><strong>发表评论</strong></td>
+<td align="right"><a href="/e/pl/?classid=1&amp;id=88">共有<span><script type="text/javascript" src="/e/public/ViewClick/?classid=1&id=88&down=2"></script></span>条评论</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td width="56%" align="left">用户名:
+<input name="username" type="text" class="inputText" id="username" value="" size="16" /></td>
+<td width="44%" align="left">密码:
+<input name="password" type="password" class="inputText" id="password" value="" size="16" /></td>
+</tr>
+<tr>
+<td align="left">验证码:
+<input name="key" type="text" class="inputText" size="10" />
+<img src="/e/ShowKey/?v=pl" align="absmiddle" /> </td>
+<td align="left"><input name="nomember" type="checkbox" id="nomember" value="1" checked="checked" />
+匿名发表</td>
+</tr>
+</table>
+<textarea name="saytext" rows="6" id="saytext"></textarea><input name="imageField" type="image" src="/e/data/images/postpl.gif"/>
+<input name="id" type="hidden" id="id" value="88" />
+<input name="classid" type="hidden" id="classid" value="1" />
+<input name="enews" type="hidden" id="enews" value="AddPl" />
+<input name="repid" type="hidden" id="repid" value="0" />
+<input type="hidden" name="ecmsfrom" value="/article/88.html"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></form>-->
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="widget widget_tags">
+      <h3 class="title"><strong>热门标签</strong></h3>
+      <ul class="widget_tags_inner">
+<li><a title="点击查看所有关于站长的文章" href="/tags/../../tags/zhanzhang/">站长</a></li>
+<li><a title="点击查看所有关于谷歌的文章" href="/tags/../../tags/google/">谷歌</a></li>
+<li><a title="点击查看所有关于百度的文章" href="/tags/../../tags/baidu/">百度</a></li>
+ 	  
+      </ul>
+    </div>
+    <div class="widget widget_searchbox">
+      <h3 class="title"><strong>搜索文章</strong></h3>
+<form accept-charset="utf-8" method="get" action="http://www.baidu.com/baidu" target="_blank" class="search-form">
+<input type="text" name="word" class="form-control" placeholder="输入关键字" autofocus="" x-webkit-speech="">
+<input type="submit" class="btn" value="搜索" name="submit">
+        <input type="hidden" value="baidulocal" name="tn">
+        <input type="hidden" value="3" name="cl">
+        <input type="hidden" value="2097152" name="ct">
+        <input type="hidden" value="henxue.net" name="si">
+      </form>     
+    </div>
+    <script src="/d/js/acmsd/thea1.js"></script>
+    <div class="widget widget_postlist">
+      <h3 class="title"><strong>最新文章</strong></h3>
+      <ul>
+        
+<li><a href="/article/66.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">结合项在列表页调用内容字段名称</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/69.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS动态页分页标签[!---show.listpage--]的一</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/68.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">灵动标签中用if判断第X条附加特殊样式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/71.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS列表模板过滤简介的Html代码</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/70.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS修改列表页中当前分页的显示方式</span><span class="text-muted post-views">阅读(0)</span></a></li>
+        
+<li><a href="/article/73.html"><span class="thumbnail"><img data-original="" class="thumb"/></span><span class="text">帝国CMS中$navinfor和$GLOBALS的一些使用小技巧</span><span class="text-muted post-views">阅读(0)</span></a></li>
+  	  
+      </ul>
+    </div>
+  </aside>  
+  <footer class="footer"> &copy; 2014 <a href="/">恨雪博客</a> &nbsp; 感谢 <a href="http://www.alibaixiu.com" target="_blank">阿里百秀</a> &nbsp; <a href="/sitemap.xml" target="_blank">网站地图</a> </footer>
+  <div class="rollto"><a href="javascript:;"></a></div>
+</section>
+<script type='text/javascript' src='/skin/xiu/js/jquery.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/bootstrap.js?ver=1.0.1'></script> 
+<script type='text/javascript' src='/skin/xiu/js/custom.js?ver=1.0.1'></script>
+</body>
+</html>
