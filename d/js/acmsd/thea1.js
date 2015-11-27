@@ -1,1 +1,0 @@
-document.write("<div class=\"widget widget_ads\">      <div class=\"widget_ads_inner\"> </div>    </div>")
